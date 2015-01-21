@@ -1,0 +1,635 @@
+<html>
+<head>
+	<title></title>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<style>
+
+		/** Begin reset */
+	    * {
+	        margin: 0;
+	        padding: 0;
+	        -webkit-box-sizing: border-box;
+	        -moz-box-sizing: border-box;
+	        box-sizing: border-box;
+	    }
+	    h1, h2, h3, h4, h5, h6, p { margin-bottom: 50%; }
+	    ol, ul, dl { list-style-position: inside; }
+		/** End reset */
+
+		/** Begin standard selectors */
+	    body {
+	        font : 13px Verdana, Helvetica, Arial, sans-serif;
+	        color : #222;
+	        background-color : #888;
+	    }
+	    a { text-decoration : none; }
+	        a:link, a:visited { color : inherit; }
+	        a:hover { text-decoration: underline; }
+	    strong {
+	        font-weight : 800;
+	        color : #000;
+	    }
+		/** End standard selectors */
+
+		/** Begin#spa nam#space selectors */
+	    #spa {
+	        position : absolute;
+	        top : 8px;
+	        left : 8px;
+	        bottom : 8px;
+	        right : 8px;
+	        min-height : 600px;
+	        min-width : 450px;
+	        overflow : hidden;
+	        background-color : #fff;
+	        border-radius : 8px;
+	    }
+		/** End#spa nam#space selectors */
+
+		/** Begin utility selectors */
+	    #spa-x-select {}
+	    #spa-x-clearfloat {
+	        height : 0 !important;
+	        float : none !important;
+	        visibility : hidden !important;
+	        clear : both !important;
+	    }
+		/** End utility selectors */
+
+
+		#spa-shell-head, #spa-shell-head-logo, #spa-shell-head-acct,
+		#spa-shell-head-search, #spa-shell-main, #spa-shell-main-nav,
+		#spa-shell-main-content, #spa-shell-foot, #spa-shell-chat,
+		#spa-shell-modal {
+			position: absolute;
+		}
+
+		#spa-shell-head {
+			top		: 0;
+			left	: 0;
+			right	: 0;
+			height	: 40px;
+		}
+
+		#spa-shell-head-logo {
+			top		: 4px;
+			left	: 4px;
+			height	: 32px;
+			width	: 300px;
+			background: orange;
+			font-size: 1.8em;
+			border-radius: 5px;
+			text-align: center;
+		}
+			#spa-shell-head-logo:hover {
+				color:yellow;
+			}
+
+		#spa-shell-head-acct {
+			font-size: 1.8em;
+			text-align: center;
+			top		: 4px;
+			right	: 4px;
+			width	: 180px;
+			height	: 32px;
+			border-radius: 5px;
+			background: rgb(80, 150, 250); 
+			
+		}
+		#spa-shell-head-acct:hover {
+			background: rgba(80, 150, 250, 0.75); 
+		}
+
+		#spa-shell-head-search {
+			top		: 4px;
+			right	: 70px;
+			width	: 248px;
+			height	: 32px;
+			/*background: blue;*/
+			border-radius: 5px;
+		}
+
+		#spa-shell-main {
+			top		: 40px;
+			left	: 0;
+			bottom	: 40px;
+			right	: 0;
+		}
+
+		#spa-shell-main-content,
+		#spa-shell-main-nav {
+			top		: 0;
+			bottom	: 0;
+		}
+
+		#spa-shell-main-nav {
+			z-index: 2;
+			width: 100%;
+			background: #eee;
+		}
+
+		#spa-shell-main-content {
+			width: 100%;
+			background: #ddd;
+		}
+
+		#spa-shell-foot {
+			bottom	: 0;
+			left	: 0;
+			right	: 0;
+			height	: 60px;
+		}
+
+		#start {
+			width: 180px;
+			height: 48px;
+			text-align:	center;
+			font-size: 2.7em;
+			background: #5096fa;
+			border-radius: 10px;
+			margin: 300px auto
+		}
+
+		#start:hover {
+			background: rgba(80, 150, 250, 0.75); 
+		}
+
+		#headsearch {
+			margin: 5px;
+			height: 20px;
+			width: 60px;
+			border-radius: 5px;
+		}
+
+		#headsearch:focus {
+			width: 200px;
+
+		}
+
+		#spa-shell-main-content-panel {
+			background: #fff;
+			margin: 30px auto;
+			width	: 800px;
+			min-height	: 450px;
+			border-radius: 3px;
+		}
+
+		#upper-panel {
+			position: relative;
+			top: 10px;
+			background: #fff;
+			width: 780px;
+			height: 350px;
+			margin: 5px auto;
+			font-size: 2em;
+		}
+
+		#lower-panel {
+			position: relative;
+			top: 14px;
+			background: #ddd;
+			width:780px;
+			height:72px;
+			border-radius: 5px;
+			margin: 5px auto;
+			
+		}
+
+		#left-panel, #right-panel{
+			width: 385px;
+			height: 350px;
+			display: inline-block;
+			border-radius: 5px;
+			padding: 10px;
+			background: #ddd;
+		}
+
+		#left-panel {float: left;}
+
+		#right-panel {float: right;}
+
+
+		#left-button, #right-button, #save {
+			width: 180px;
+			height: 36px;
+			margin: 20px;
+			display: inline-block;
+			border-radius: 5px;
+			text-align: center;
+			font-size: 2em;
+		}
+
+		#left-button { float: left; background: #faa; }
+		#left-button:hover {background: rgba(255, 176, 176, 0.75); }
+		#right-button { float: left; background: #afa; }
+		#right-button:hover {background: #6f8; }
+		#save { float: right; background: #5096fa; width: 240px;}
+		#save:hover {background: rgba(80, 150, 250, 0.75); }
+
+		#statistics {
+			text-align: center;
+		}
+
+
+	</style>
+<!--	<script type="text/javascript" src="./js/jquery-1.9.1.min.js"></script> -->
+	<script type="text/javascript" charset="utf-8">
+
+
+
+
+		//---------------- BEGIN ENTRY POINT --------------
+		window.onload = function() {
+			//document.charset = 'UTF-8';
+			if (window.localStorage) {
+				main();
+			} else {
+				alert("此浏览器不支持localStorage，请使用其他浏览器（Firefox，Chrome）");
+			}
+		};
+		//---------------- END ENTRY POINT --------------
+
+
+
+
+		//---------------- BEGIN MAIN --------------
+		var main = function() {
+
+			/**
+
+			EXPLAIN Internal Data Structure
+
+			dictionary = {'english1': 'chinese1', 'english2':'chinese2' ... }
+
+			progress = {
+
+				'unseen': [w1, w2, ... ],			<---- 		all the unseen words
+
+				'seen': { 							<---- 		all the words that is being memorized
+					w1:[ #correct, #total ],
+					w2:[ #correct, #total ],		<---- 		keep track of the #times correct
+					w3:[ #correct, #total ],					and the total #times it is shown
+					....										if correct > 7 and correct/total > 60%
+				}												mark it as complete and delete
+
+					<---- 		we dont keep track of completed words, just toss them
+			}
+
+			state = 0 		<---- on the page with start
+
+			state = 1 		<---- remember this word? remember => GOTO(2); forgot => GOTO(3)
+
+			state = 2  		<---- correct => GOTO(1); incorrect => GOTO(1)
+
+			state = 3  		<---- next word? GOTO(1)
+
+			state = 4 		<---- complete all the words
+
+			*/
+
+			var dictionary, progress, state = 0;
+			
+			var 
+				msg_rember 	= "Remember(J)",
+				msg_forget	= "Forget(F)",
+				msg_no 		= "Wrong(F)",
+				msg_yes 	= "Right(J)",
+				msg_next 	= "Next(J)",
+
+				english,
+				chinese,
+
+				hit = 0,
+				total = 1,
+
+				stts 	= document.getElementById('statistics'),
+				quit 	= document.getElementById('spa-shell-head-acct'),
+				start	= document.getElementById('start'),
+				left 	= document.getElementById('left-panel'),
+				right 	= document.getElementById('right-panel'),
+				red 	= document.getElementById('left-button'),
+				green 	= document.getElementById('right-button'),
+				nav 	= document.getElementById('spa-shell-main-nav'),
+				sav 	= document.getElementById('save'),
+				fav;
+
+			quit.style.visibility = 'hidden';
+
+
+
+			//---------------- BEGIN Click Start --------------
+			start.addEventListener('click', function() {
+				dictionary = createDictionay(); // init dictionary whose length is 5230
+
+				progress = localStorage.progress; // try to retrieve progress from localStorage
+
+				if (!progress) { // lazy instantiate progress
+					var voc = Object.keys(dictionary);
+					progress = {'unseen': voc, 'seen': {}};
+				} else {
+					progress = JSON.parse(progress);
+				}
+
+				console.log(progress);
+
+				nav.style.visibility = 'hidden';
+				quit.style.visibility = 'visible';
+				state = 1;
+				english = retrieveNextWord();
+				chinese = dictionary[english];
+
+				left.innerHTML = english;
+				right.innerHTML = '';
+				red.innerHTML = msg_forget;
+				green.innerHTML = msg_rember;
+				
+				console.log(english, chinese);
+				console.log(progress);
+			});
+			//---------------- END Click Start --------------
+
+
+			/*
+			fav.addEventListener('keyup',function(){
+				sav.innerHTML = 'Save Progress'
+				sav.style.visibility = 'visible';
+			});
+			*/
+
+			window.addEventListener('keypress', function(e) {
+				var k = e.keyCode;
+				switch (k) {
+					case 102:
+						redKeyDown();
+						console.log('F');
+						break;
+					case 106:
+						greenKeyDown();
+						console.log('J');
+						break;
+					case 115:
+						break;
+					case 113:
+						break;
+				}
+			})
+
+			red.addEventListener('click', function() {redKeyDown()});
+
+			green.addEventListener('click', function() {greenKeyDown()});
+
+			sav.addEventListener('click', function(){
+				localStorage.progress = JSON.stringify(progress);
+				sav.innerHTML = 'Saved';
+			});
+
+			quit.addEventListener('click', function() {
+				localStorage.progress = JSON.stringify(progress);
+				nav.style.visibility = 'visible';
+				quit.style.visibility = 'hidden';
+			});
+
+			
+			//---------------- BEGIN UTILITY METHODS --------------
+
+			var updateFourElements = function(ul, ur, ll, lr) {
+				/*
+				update: UpperLeft 	= left(English)
+						UpperRight	= right(Chinese)
+						LowerLeft 	= red(Forgot, Wrong)
+						LowerRight	= green(Rember, Correct, Next)
+				*/
+				return;
+			}
+
+			var redKeyDown = function() {
+				sav.innerHTML = 'Save Progress';
+				if (state === 1) {
+					//forgot, goto 3
+					right.innerHTML = chinese;
+					red.style.visibility = 'hidden';
+					green.innerHTML = msg_next;
+					state = 3;
+					//console.log('fgt 1->3');
+					
+				} else if (state === 2) {
+					//wrong, goto 1
+					red.innerHTML = msg_forget;
+					green.innerHTML = msg_rember;
+					state = 1;
+					//update progress
+					progress.seen[english][1]++;
+					//console.log('wrg 2->1', state, progress);
+					
+				} else if (state === 3) {
+					//can't happen, but if it does, goto 1 and initialize
+ 					left.innerHTML = english;
+ 					right.innerHTML = '';
+					red.innerHTML = msg_forget;
+					green.innerHTML = msg_rember;
+					state = 1;
+					//update progress
+					//console.log('red impossible 3->1', state, progress);
+
+				}
+
+			}
+
+			var greenKeyDown = function() {
+				sav.innerHTML = 'Save Progress';
+				if (state === 1) {
+					//remember, goto 2
+					right.innerHTML = chinese;
+					red.innerHTML = msg_no;
+					green.innerHTML = msg_yes;
+					state = 2;
+					//console.log('rem 1->2', state, progress);
+
+				} else if (state === 2) {
+					//correct, goto 1
+					hit = progress.seen[english][0]++;
+					total = progress.seen[english][1]++;
+					if (hit/total > 0.6 && total > 7) {
+						delete progress.seen[english];
+					}
+					english = retrieveNextWord();
+					chinese = dictionary[english];
+					//console.log(english, chinese);
+					left.innerHTML = english;
+					right.innerHTML = '';
+					red.innerHTML = msg_forget;
+					green.innerHTML = msg_rember;
+					state = 1;
+					//update progress
+					//console.log('correct 2->1', state, progress);
+
+				} else if (state === 3) {
+					// next, goto 1
+					english = retrieveNextWord();
+					chinese = dictionary[english];
+					//console.log(english, chinese);
+					red.style.visibility = 'visible';
+					left.innerHTML = english;
+					right.innerHTML = '';
+					red.innerHTML = msg_forget;
+					green.innerHTML = msg_rember;
+					state = 1;
+					// update progress
+					progress.seen[english][1]++;
+					//console.log('correct 3->1', state, progress);
+
+				}
+			};
+
+			var countHashKeys = function (hash) {
+				var i = 0;
+				for (var k in hash) {
+					i ++;
+				}
+				return i;
+			};
+
+			var retrieveNextWord = function() {
+				len_unseen = progress.unseen.length;
+				len_seen   = countHashKeys(progress.seen);
+				console.log("len_seen, len_unseen", len_seen, len_unseen);
+				stts.innerHTML = "总计5230个单词，已见过"+ len_seen +"个单词， 已完成" +(5230-len_seen-len_unseen)+ "个单词。"
+				var result;
+
+				if (len_seen < 100) {
+
+
+					if (len_unseen > 0) {
+
+						//retrieve one fron unseen and add it to seen
+						var idx = Math.floor(Math.random()*len_unseen);
+						result = progress.unseen.pop();
+						progress.seen[result] = [0, 0];
+						//console.log(progress);
+						return result;
+
+					} else {//len_unseen === 0
+
+						if (len_seen === 0) {//len_unseen = 0 and len_seen = 0
+							//congrats completion
+							alert("恭喜你 已完成四六级单词的学习！");
+							return;
+
+						} else { //len_unseen===0 and  0<len_seen<100
+							//retrieve fron seen till completion
+							result = randomFromHash(progress.seen, len_seen);
+							return result;
+						}
+					}
+
+				} else { 
+					//len_seen >= 100
+					//retrieve from seen
+					result = randomFromHash(progress.seen, len_seen);
+					return result;
+				}
+			}
+
+			var randomFromHash = function(obj, len) {
+				var res;
+				var count = 0;
+				var rand = Math.floor(Math.random()*len);
+				for (var prop in obj) {
+					if (rand === count) {
+						res = prop;
+						break;
+					}
+					count++;
+				}
+				return res;
+			};
+
+			var createDictionay = function() {
+				var d = {
+						"squirrel" : " n.松鼠 ", 
+						"mutual" : " a.相互的；共同的 ", 
+						"contest" : " vt.争夺，争取；辩驳 ", 
+						"boot" : " n.靴子，长统靴 ", 
+						"amusement" : " n.娱乐，消遣，乐趣 ", 
+						"branch" : " n.树枝；分部；分科 ", 
+						"chemist" : " n.化学家；药剂师 ", 
+						"conclusion" : " n.结论，推论；结尾 ", 
+						"album" : " n.粘贴簿；相册；文选 ", 
+						"nourishment" : " n.食物；营养(情况) n.食物；营养(情况) n.食物；营养(情况) n.食物；营养(情况) n.食物；营养(情况) "
+				};
+				return d;
+			};
+			//---------------- END UTILITY METHODS --------------
+
+
+		}
+		//---------------- END MAIN --------------
+
+
+
+
+
+		
+	</script>
+
+</head>
+<body>
+
+	<div id="spa">
+
+		<div id="spa-shell-head">
+			<div id="spa-shell-head-logo">
+				Happy Birthday Mom!
+			</div>
+			<div id="spa-shell-head-acct">
+				Save/Quit
+			</div>
+			<!-- 
+			<div id="spa-shell-head-search">
+				<input id="headsearch" type="text"> 
+			</div>
+			-->
+		</div><!--spa-shell-head-->
+
+		<div id="spa-shell-main">
+			<div id="spa-shell-main-nav">
+				<div id="start">start :)</div>
+			</div>
+			<div id="spa-shell-main-content">
+
+				<div id="spa-shell-main-content-panel"> 
+
+
+
+					<div id="upper-panel"> 
+						<div id="left-panel"></div>
+						<div id="right-panel"></div>
+					</div>
+
+
+					<div id="lower-panel"> 
+						<div id="left-button"></div>
+						<div id="right-button"></div>
+						<div id="save">Save Progress</div>
+					</div>
+
+					
+
+
+				</div><!--spa-shell-main-content-panel-->
+
+			</div><!--spa-shell-main-content-->
+
+		</div><!--spa-shell-main-->
+
+		<div id="spa-shell-foot">
+			<div id="statistics">
+				总计5230个单词，已见过0个单词， 已完成0个单词。
+			</div>
+		</div>
+
+	</div><!--spa-->
+
+
+</body>
+</html>
